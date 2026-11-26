@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b2634">
+  <meta name="description" content="Snorlax Hangman: solve Pokémon-themed words before Snorlax wakes up.">
+  <title>Snorlax Hangman | Don't Wake Snorlax</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/game.js" defer></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Snorlax Hangman home">
+        <img src="images/snorlax6.png" alt="Snorlax mascot" width="48" height="48">
+        <span>SNORLAX<span class="brand-accent">.GAME</span></span>
+      </a>
+      <span class="header-label"><span class="online-dot" aria-hidden="true"></span> HANGMAN • POKÉMON EDITION</span>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="main-title">
+        <div class="hero-copy">
+          <span class="eyebrow">A COZY WORD-GUESSING ADVENTURE</span>
+          <h1 id="main-title">DON'T WAKE<br><span>SNORLAX!</span></h1>
+          <p>Guess the secret word before Snorlax wakes up. You have <strong>6 chances</strong> to keep this sleepy Pokémon dreaming.</p>
+          <div class="hero-tags"><span>✦ Word puzzles</span><span>☾ 6 mistakes max</span><span>♥ Unlimited replays</span></div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="hero-halo"></div>
+          <div class="float-star star-one">✦</div><div class="float-star star-two">✧</div>
+          <img class="main-snorlax" id="hero-snorlax" src="images/stage1.gif" alt="">
+          <div class="sleep-bubble" id="sleep-bubble">Z<span>z</span><span>z</span></div>
+        </div>
+      </section>
+
+      <section class="game-layout" aria-label="Hangman game">
+        <div class="game-card">
+          <div class="card-topline"><span class="section-tag">01 / THE CHALLENGE</span><span class="round-tag" id="round-label">ROUND 01</span></div>
+          <div class="game-heading"><div><h2>Guess the word</h2><p>Every incorrect guess changes the Snorlax picture.</p></div><span class="pokeball" aria-hidden="true">◉</span></div>
+
+          <div class="hint-panel"><span class="hint-icon" aria-hidden="true">✧</span><div><span class="hint-label">YOUR HINT</span><p id="hint-text">Loading a secret word...</p></div></div>
+          <div id="word-display" class="word-display" role="group" aria-label="Secret word"></div>
+          <p id="word-progress" class="word-progress">Find all the letters!</p>
+
+          <div class="guess-header"><h3>Choose a letter</h3><span id="used-count">0 / 26 USED</span></div>
+          <div id="keyboard" class="keyboard" role="group" aria-label="Guess a letter using the on-screen keyboard"></div>
+          <form id="guess-form" class="guess-form" autocomplete="off">
+            <label for="letter-input">Or type a letter</label>
+            <div class="input-row"><input id="letter-input" name="letter" maxlength="1" inputmode="text" pattern="[A-Za-z]" aria-describedby="input-help" placeholder="A–Z" autocomplete="off"><button id="guess-button" type="submit">GUESS <span aria-hidden="true">→</span></button></div>
+            <p id="input-help" class="input-help">You can also press letter keys on your keyboard.</p>
+          </form>
+          <div id="result-panel" class="result-panel" role="status" aria-live="polite" hidden>
+            <span id="result-icon" class="result-icon" aria-hidden="true">★</span>
+            <div><h3 id="result-title"></h3><p id="result-description"></p></div>
+            <button id="play-again" type="button">PLAY AGAIN ↻</button>
+          </div>
+          <div class="card-footer"><span id="feedback" aria-live="polite">Pick a letter to begin.</span><button class="small-reset" type="button" id="restart-button">↻ New word</button></div>
+        </div>
+
+        <aside class="side-column" aria-label="Game progress and artwork">
+          <section class="progress-card">
+            <div class="progress-top"><span class="section-tag">02 / SLEEP STATUS</span><span id="sleep-status" class="status-pill">FAST ASLEEP</span></div>
+            <h2>Snorlax picture progress</h2>
+            <p class="progress-subtitle">The six wrong guesses show your six Snorlax images in order.</p>
+            <div class="alarm-scene" id="alarm-scene" role="img" aria-label="Snorlax picture, 0 of 6 mistakes">
+              <div class="scene-stars" aria-hidden="true">✦ <span>✧</span> ✦</div>
+              <img class="progress-snorlax" id="progress-snorlax" src="images/stage1.gif" alt="Snorlax sleeping before the first guess" width="500" height="317">
+              <span class="picture-stage" id="picture-stage">STARTING IMAGE · 0 / 6</span>
+            </div>
+            <div class="mistakes-label"><strong>Wrong guesses</strong><span id="mistake-count">0 / 6 mistakes</span></div>
+            <div class="mistake-bars" id="mistake-bars" aria-label="0 of 6 mistakes"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="side-caption"><span aria-hidden="true">☾</span><span id="encouragement">Snorlax is sleeping peacefully. Keep it that way!</span></div>
+          </section>
+          <section class="collectible-card"><div><span class="section-tag">YOUR SLEEPY COMPANION</span><h3>Nap time is serious business.</h3><p>One word at a time. One nap at a time.</p></div><img src="images/snorlax4.webp" alt="Illustration of a resting Snorlax" width="124" height="124"></section>
+        </aside>
+      </section>
+
+      <section class="gallery" aria-labelledby="gallery-title"><div class="gallery-heading"><div><span class="section-tag">A LITTLE SNORLAX LOVE</span><h2 id="gallery-title">Dream team.</h2></div><span>FIVE ORIGINAL IMAGES + ONE MASCOT ASSET</span></div>
+        <div class="gallery-grid"><figure class="gallery-item gallery-large"><img src="images/snorlax2.webp" alt="Snorlax sleeping beside a pond in a forest" loading="lazy"><figcaption>THE PERFECT NAP SPOT</figcaption></figure><figure class="gallery-item"><img src="images/snorlax1.webp" alt="Snorlax on a Japanese Pokémon trading card" loading="lazy"><figcaption>CLASSIC CARD ART</figcaption></figure><figure class="gallery-item"><img src="images/snorlax3.webp" alt="Snorlax Pokémon trading card" loading="lazy"><figcaption>THE SLEEPY LEGEND</figcaption></figure></div>
+      </section>
+    </main>
+    <footer class="site-footer"><span>SNORLAX.GAME <span aria-hidden="true">✦</span> COMP2132 JAVASCRIPT PROJECT</span><span>Made for practice and fun. Pokémon characters belong to their respective owners.</span></footer>
+  </div>
+</body>
+</html>
