@@ -63,8 +63,4 @@ After installing Dart Sass, run:
 sass scss/style.scss css/style.css
 ```
 
-## GitHub and submission
-
-Create a public GitHub repository, add the **contents** of this folder and commit/push. Then email the repository URL to `jeffrey_parker@bcit.ca` from your BCIT email with subject `COMP2132 Project`. Also submit a ZIP backup to the course Project Dropbox. Publishing and emailing must be done by you.
-
 Artwork is based on user-provided Pokémon/Snorlax images. Pokémon remains the property of its respective rights holders. Not an official Pokémon game.
